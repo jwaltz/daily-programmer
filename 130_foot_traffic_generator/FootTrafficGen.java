@@ -1,10 +1,8 @@
 import java.util.Random;
-import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Arrays;
 
 public class FootTrafficGen {
     public static void main(String[] args) {        
@@ -37,9 +35,14 @@ public class FootTrafficGen {
                 System.out.println(visitorNum + " " + roomNum + " I " + enterTime);
                 countdown--;
             }
-            //implement visitor exiting
-            //iterate through rooms.keys to print out visitors leaving
-            //decrement countdown
+            for (Integer room : rooms.keySet()) {
+                List<Visitor> leaving = rooms.get(room);
+                for (Visitor v : leaving) {
+                    int exitTime = rand.nextInt(END_TIME - v.getEnterTime() + 1) + v.getEnterTime();
+                    System.out.println(v.getNum() + " " + room + " O " + exitTime);
+                }
+                countdown--;
+            }            
         }
     }
             
