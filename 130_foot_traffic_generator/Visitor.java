@@ -11,10 +11,6 @@ public class Visitor {
         this.visitorNum = num;        
     }
 
-    public int getVisitDuration() {
-        return this.exitTime - this.enterTime;
-    }
-
     public boolean isVisiting() {
         return this.visiting;
     }
