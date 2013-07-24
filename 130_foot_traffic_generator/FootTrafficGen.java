@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class FootTrafficGen {
     public static void main(String[] args) {        
         int EVENT_COUNT = Integer.parseInt(args[0]);
-        System.out.println(EVENT_COUNT);
+        System.out.println(EVENT_COUNT * 2);
         int VISITOR_COUNT = Integer.parseInt(args[1]) + 1;
         int ROOM_COUNT = Integer.parseInt(args[2]) + 1;
         int START_TIME = Integer.parseInt(args[3]);
@@ -19,7 +19,7 @@ public class FootTrafficGen {
             visitors[i] = i;
         }        
 
-        int countdown = EVENT_COUNT;
+        int countdown = EVENT_COUNT * 2;
         while (countdown > 0) {
             Map<Integer, List<Visitor>> rooms = new HashMap<>();
             for (int visitorNum : visitors) {
