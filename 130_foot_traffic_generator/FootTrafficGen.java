@@ -21,19 +21,25 @@ public class FootTrafficGen {
             visitors[i] = i;
         }        
 
-        Map<Integer, List<Visitor>> rooms = new HashMap<>();
-        
-        for (int visitorNum : visitors) {
-            int enterTime = rand.nextInt(END_TIME - START_TIME + 1) + START_TIME;
-            Visitor visitor = new Visitor(visitorNum, enterTime);
-            int roomNum = rand.nextInt(ROOM_COUNT);
-            if (rooms.containsKey(roomNum)) {
-                rooms.get(roomNum).add(visitor);
-            } else {                
-                rooms.put(roomNum, new ArrayList<Visitor>());
-                rooms.get(roomNum).add(visitor);
-            }   
-            System.out.println(visitorNum + " " + roomNum + " I " + enterTime);
+        int countdown = EVENT_COUNT;
+        while (countdown > 0) {
+            Map<Integer, List<Visitor>> rooms = new HashMap<>();
+            for (int visitorNum : visitors) {
+                int enterTime = rand.nextInt(END_TIME - START_TIME + 1) + START_TIME;
+                Visitor visitor = new Visitor(visitorNum, enterTime);
+                int roomNum = rand.nextInt(ROOM_COUNT);
+                if (rooms.containsKey(roomNum)) {
+                    rooms.get(roomNum).add(visitor);
+                } else {                
+                    rooms.put(roomNum, new ArrayList<Visitor>());
+                    rooms.get(roomNum).add(visitor);
+                }   
+                System.out.println(visitorNum + " " + roomNum + " I " + enterTime);
+                countdown--;
+            }
+            //implement visitor exiting
+            //iterate through rooms.keys to print out visitors leaving
+            //decrement countdown
         }
     }
             
